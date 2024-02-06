@@ -1,0 +1,445 @@
+@import url("https://fonts.googleapis.com/css2?family=Marhey:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --short-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c,
+    2px 0px 0 #2a2a2a;
+  --long-3d-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c,
+    0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424,
+    0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c,
+    0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414,
+    0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9),
+    2px -8px 5px rgba(10, 206, 172, 0);
+  --main-color: #0dcaf0;
+  --dark-color: #212529;
+}
+
+body {
+  font-family: "Marhey", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  user-select: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+i {
+  transition-duration: 0s;
+}
+
+.ico-bg {
+  width: 120px;
+  height: 120px;
+  color: black;
+  border: 10px solid var(--main-color);
+  margin: auto;
+  transition-duration: 0.5s;
+}
+
+main {
+  display: none;
+}
+
+/* ----------------- Navbar section ------------------- */
+
+nav {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+}
+
+#navToggle {
+  color: white;
+  text-shadow: var(--short-shadow);
+  background-color: rgba(0, 0, 0, 0.551);
+  padding: 20px;
+  border-radius: 0 50% 50% 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-contain {
+  background-color: var(--dark-color);
+  height: 100%;
+  width: 0px;
+  box-shadow: -10px 0px 10px -10px #0dcaf07d inset;
+  color: white;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-contain ul {
+  padding: 20px 10px;
+}
+
+.nav-contain ul a:hover {
+  background-color: #0dcaf0;
+  border-radius: 20px;
+}
+
+.closeBtn {
+  display: flex;
+  justify-content: end;
+}
+
+#closeNav {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: black;
+}
+
+#closeNav:hover {
+  background-color: #ae1313;
+  color: white;
+}
+
+.navItem a {
+  color: white;
+  padding: 5px 5px;
+  margin: 20px 0;
+  font-size: 25px;
+  text-align: center;
+  display: block;
+}
+
+/* ----------------- Header section ------------------- */
+
+header {
+  width: 5px;
+  height: 5px;
+  position: relative;
+}
+.ramadan-lanterns {
+  background-image: url(../images/ramadan-bg.png);
+  background-repeat: repeat-x;
+  background-size: auto;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -100%;
+}
+
+.header-end {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.header-end svg path {
+  animation: drawPath 2s forwards 1s;
+  transform: translateY(-100%);
+}
+
+@keyframes drawPath {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.ramadan-text {
+  position: relative;
+  z-index: 4;
+  margin-top: -10px;
+}
+
+.ramadan {
+  font-size: 6rem;
+  text-shadow: var(--long-3d-shadow);
+  color: white;
+  animation: pulse 1s both infinite;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.rPhase {
+  color: white;
+  font-size: 1.4rem;
+  margin-top: 40px;
+}
+
+.header-end svg {
+  position: relative;
+  z-index: 2;
+}
+
+.lantern {
+  width: 4%;
+  position: absolute;
+  right: 100px;
+  top: 10%;
+  animation: swing 2.4s infinite ease-in-out;
+  transform-origin: top;
+  z-index: 1;
+  opacity: 0;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+
+/* ----------------- sections title ------------------- */
+
+.section-title {
+  text-align: center;
+  color: white;
+  margin: 60px auto -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-title h2 {
+  font-size: 50px;
+  text-shadow: var(--long-3d-shadow);
+}
+
+/* ----------------- Accordion section ------------------- */
+
+.section-accr {
+  min-height: 300px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-accr {
+  width: 50%;
+}
+
+.accordion-item {
+  margin-bottom: 5px;
+}
+
+.accr-header {
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  text-shadow: var(--short-shadow);
+}
+
+.accr-header i {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.accr-header i.rotated {
+  transform: rotate(-180deg);
+}
+
+.accr-text {
+  padding: 10px;
+  text-align: right;
+  font-size: 1.2rem;
+  border-radius: 0 0 10px 10px;
+  width: 98%;
+  margin: auto;
+}
+
+/* ----------------- CountDown section ------------------- */
+
+.counter-text {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.islamic-count {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.islamic-count h3 {
+  color: white;
+  text-shadow: var(--short-shadow), 0 0 5px black;
+}
+
+/* ----------------- Footer ------------------- */
+
+footer {
+  border-radius: 100px 100px 0 0;
+  background-color: var(--main-color);
+  color: black;
+  text-align: center;
+}
+
+footer h2 {
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  text-shadow: 0 1px 0px lightgrey, 0 2px 0 white, 0 3px 0 grey,
+    1px 0px 0 lightgrey, 2px 0 0 white, 3px 0 0 grey;
+}
+
+footer .container {
+  padding: 64px 48px;
+  background-color: white;
+  border-radius: 50px 50px 0 0;
+}
+
+.form-control {
+  text-align: right;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  transition-duration: 0s;
+  max-height: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.contact-form textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus {
+  outline: 0;
+  border: 1px solid white;
+  box-shadow: 0 0 0 4px lightgrey;
+}
+
+.contact-form input::placeholder,
+textarea::placeholder {
+  padding: 5px 0px;
+}
+.contact-form button {
+  padding: 10px 24px;
+  background-color: white;
+}
+
+.contact-form p span {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.contact-touch p {
+  text-align: right;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 100;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-touch ul {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.contact-touch ul li span {
+  font-size: 16px;
+  color: var(--main-color);
+  width: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.contact-touch .ico-bg {
+  width: 50px;
+  height: 50px;
+  border-width: 5px;
+  margin-right: 10px;
+}
+
+.contact-touch .ico-bg:hover {
+  border-color: lightgrey;
+  background-color: var(--main-color);
+}
+
+.contact-touch .ico-bg i {
+  font-size: 22px;
+  transition: transform 0.6s;
+}
+
+.contact-touch .ico-bg:hover i {
+  transform: scale(1.1);
+  transition: transform 0.6s 0.4s;
+}
+
+/* ----------------- MEDIA ------------------- */
+
+@media screen and (max-width: 1200px) {
+  .ramadan-lanterns {
+    background-size: contain;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-accr {
+    width: 80%;
+  }
+  .lantern {
+    width: 6%;
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .main-accr {
+    width: 95%;
+  }
+}
