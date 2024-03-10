@@ -82,7 +82,7 @@ $(function () {
         let minutes = Math.floor((difference - (days * (60 * 60 * 24)) - (hours * (60 * 60))) / 60);
         let seconds = Math.floor((difference - (days * (60 * 60 * 24)) - (hours * (60 * 60)) - (minutes * 60)));
 
-        if ((days != 0 && hours != 0 && minutes != 0 && seconds != 0) || days > 0) {
+        if ((days > 0 && hours != 0 && minutes != 0 && seconds != 0) || days > 0) {
             $("#secondsText").text(seconds)
             $("#minutesText").text(minutes)
             $("#hoursText").text(hours)
