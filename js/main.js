@@ -71,7 +71,7 @@ $(function () {
     // -------------------- Days countdown
     let countDown = setInterval(function () {
 
-        let targetDate = new Date("Feb 28, 2025 00:00:00").getTime() / 1000;
+        let targetDate = new Date("Mar 1, 2025 00:00:00").getTime() / 1000;
         let now = new Date().getTime() / 1000;
 
         let difference = targetDate - now;
